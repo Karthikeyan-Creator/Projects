@@ -3,17 +3,18 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      java: corretto11
-  pre_build:
+      php: 8.1  # Specify your desired PHP version
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - echo "Installing PHP dependencies..."
   build:
     commands:
-      - echo Build started on `date`
-      - mvn install
+      - echo "Building and testing your PHP application..."
+    
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo "Deployment or other post-build steps go here..."
+
 artifacts:
   files:
-    - target/messageUtil-1.0.jar
+    - '**/*'  # Include all files in the build artifact
+
